@@ -46,7 +46,8 @@ function listFruitsToDOM () {
         for (let fruitArray in collectionsFruitsToLocalStorage) {
             const option = document.createElement('option');
             option.textContent = collectionsFruitsToLocalStorage[fruitArray].name;
-            console.log(collectionsFruitsToLocalStorage[fruitArray].value);
+
+            //console.log(priceToUnit.value = collectionsFruitsToLocalStorage[fruitArray].value);
             selectFruits.appendChild(option);
         }
     }
