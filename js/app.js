@@ -15,20 +15,20 @@ function localStorageLoad () {
     // listFruitReceipt();
     collectionsFruits = [
         {
-            nombre: 'manzana',
-            valor : 3
+            name : 'manzana',
+            value : 3
         },
         {
-            nombre: 'pera',
-            valor : 8
+            name : 'pera',
+            value : 8
         },
         {
-            nombre: 'guayaba',
-            valor : 5
+            name : 'guayaba',
+            value : 5
         },
         {
-            nombre: 'maracuyá',
-            valor : 8
+            name : 'maracuyá',
+            value : 8
         },
     ];
 
@@ -41,10 +41,12 @@ function listFruitsToDOM () {
 
     if (collectionsFruitsToLocalStorage) {
         const selectFruits = document.querySelector('select'); 
+        const priceToUnit = document.querySelector('#priceToUnit');         
         
         for (let fruitArray in collectionsFruitsToLocalStorage) {
             const option = document.createElement('option');
-            option.textContent = collectionsFruitsToLocalStorage[fruitArray].nombre;
+            option.textContent = collectionsFruitsToLocalStorage[fruitArray].name;
+            console.log(collectionsFruitsToLocalStorage[fruitArray].value);
             selectFruits.appendChild(option);
         }
     }
