@@ -22,6 +22,14 @@ function localStorageLoad () {
             nombre: 'pera',
             valor : 8
         },
+        {
+            nombre: 'guayaba',
+            valor : 5
+        },
+        {
+            nombre: 'maracuyá',
+            valor : 8
+        },
     ];
 
     localStorage.setItem('fruits', JSON.stringify(collectionsFruits)); 
@@ -33,11 +41,11 @@ function listFruitsToDOM () {
 
     if (collectionsFruitsToLocalStorage) {
         const selectFruits = document.querySelector('select'); 
-        const option = document.createElement('option');
-
-            for (let fruitArray in collectionsFruitsToLocalStorage) {
+        
+        for (let fruitArray in collectionsFruitsToLocalStorage) {
+            const option = document.createElement('option');
             option.textContent = collectionsFruitsToLocalStorage[fruitArray].nombre;
-            console.log(option.textContent);
+            selectFruits.appendChild(option);
         }
     }
 }
