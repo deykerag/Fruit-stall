@@ -80,6 +80,7 @@ function setQuantity () {
     }
 }
 
+
 function addProductToList (e) {
 
     e.preventDefault();
