@@ -7,6 +7,7 @@ eventsListenersToSale();
 function eventsListenersToSale () {
     document.addEventListener('DOMContentLoaded', localStorageLoad);
     document.querySelector('#formToSale').addEventListener('submit', addProductToList);
+    document.querySelector('#quantityUnits').addEventListener('onkeyup', setQuantity);
 }
 
 //Functions
@@ -16,19 +17,19 @@ function localStorageLoad () {
     collectionsFruits = [
         {
             name : 'manzana',
-            value : 3
+            value : 1
         },
         {
             name : 'pera',
-            value : 8
+            value : 2
         },
         {
             name : 'guayaba',
-            value : 5
+            value : 3
         },
         {
             name : 'maracuyá',
-            value : 8
+            value : 4
         },
     ];
 
@@ -40,16 +41,45 @@ function listFruitsToDOM () {
     const collectionsFruitsToLocalStorage = JSON.parse(localStorage.getItem('fruits'));
 
     if (collectionsFruitsToLocalStorage) {
-        const selectFruits = document.querySelector('select'); 
-        const priceToUnit = document.querySelector('#priceToUnit');         
-        
+        const selectFruits = document.querySelector('select');     
+     
         for (let fruitArray in collectionsFruitsToLocalStorage) {
             const option = document.createElement('option');
             option.textContent = collectionsFruitsToLocalStorage[fruitArray].name;
-
-            //console.log(priceToUnit.value = collectionsFruitsToLocalStorage[fruitArray].value);
             selectFruits.appendChild(option);
         }
+        
+    }
+}
+
+function setValue () {
+    document.querySelector('#priceToUnit').value = 0;
+    document.querySelector('#quantityUnits').value = 0;
+    document.querySelector('#priceForTotalUnits').value = 0;
+
+    const fruits = JSON.parse(localStorage.getItem('fruits'));
+    const selectedFruitStr = document.querySelector('select').value;
+    const selectedFruitObj = fruits.filter(item => item.name === selectedFruitStr);
+
+    if (selectedFruitObj[0]) {
+        document.querySelector('#priceToUnit').value = selectedFruitObj[0].value;  
+    } else {
+        document.querySelector('#priceToUnit').value = '$'; 
+    }
+}
+
+function setQuantity () {
+    const quantityUnits = document.querySelector('#quantityUnits').value, 
+        priceToUnit = document.querySelector('#priceToUnit').value;
+
+    if (document.querySelector('#quantityUnits').value !== '') {
+
+        if (priceToUnit != '') {
+            document.querySelector('#priceForTotalUnits').value = priceToUnit * quantityUnits;
+        } else {
+            document.querySelector('#priceForTotalUnits').value = '$';
+        }
+        
     }
 }
 

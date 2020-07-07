@@ -78,14 +78,14 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Productos:</label>
-                                <select class="custom-select d-block w-100" id="product" required>
-                                    <option value="">Seleccione</option>
+                                <select onchange="setValue()" class="custom-select d-block w-100" id="product" required>
+                                    <option>Seleccione</option>
                                 </select>
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Precio por kilogramo:</label>
-                                <input class="form-control" id="priceToUnit" type="text" placeholder="$" value = "" readonly>
+                                <input class="form-control" id="priceToUnit" type="text" placeholder="$" readonly>
                             </div>
                         </div>
 
@@ -93,12 +93,12 @@
 
                             <div class="col-md-6 mb-3">
                                 <label for="">Cantidad de unidades:</label>
-                                <input class="form-control" id="quantityUnits" type="text" placeholder="Cantidad de unidades" value="">
+                                <input onkeyup="setQuantity()" class="form-control" id="quantityUnits" type="text" placeholder="Cantidad de unidades">
                             </div>
 
                             <div class="col-md-6 mb-3">
                                 <label for="lastName">Precio por total de unidades:</label>
-                                <input class="form-control" id="priceForTotalUnits"  value="20" type="text" placeholder="$" readonly>
+                                <input class="form-control" id="priceForTotalUnits" type="text" placeholder="$" readonly>
                             </div>
                         </div>
                         <br>
