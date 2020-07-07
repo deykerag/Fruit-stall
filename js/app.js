@@ -13,7 +13,6 @@ function eventsListenersToSale () {
 //Functions
 
 function localStorageLoad () {
-    // listFruitReceipt();
     collectionsFruits = [
         {
             name : 'manzana',
@@ -47,8 +46,7 @@ function listFruitsToDOM () {
             const option = document.createElement('option');
             option.textContent = collectionsFruitsToLocalStorage[fruitArray].name;
             selectFruits.appendChild(option);
-        }
-        
+        }    
     }
 }
 
@@ -78,8 +76,7 @@ function setQuantity () {
             document.querySelector('#priceForTotalUnits').value = priceToUnit * quantityUnits;
         } else {
             document.querySelector('#priceForTotalUnits').value = '$';
-        }
-        
+        }  
     }
 }
 
@@ -99,6 +96,45 @@ function addProductToList (e) {
         } 
 
     addProductToLocalStorage(producto);
+    listFruitReceipt();
+    document.querySelector('#formToSale').reset();
+
+}
+
+//List products in the receipt
+function listFruitReceipt() {
+    const collectionsProductsToLocalStorage = JSON.parse(localStorage.getItem('products'));
+    // console.log(optionSelectProduct);
+
+    if (collectionsProductsToLocalStorage) {
+
+        collectionsProductsToLocalStorage.forEach((element) => {
+        
+            // console.log(element);
+            if (element.nameProduct !== product) {
+
+                const li = document.createElement('li');
+                const div = document.createElement('div');
+                const h6 = document.createElement('h6');
+                const small = document.createElement('small');
+                const span = document.createElement('span');
+
+                li.classList = 'list-group-item d-flex justify-content-between lh-condensed';
+                h6.classList = 'my-0';
+                h6.innerText = element.nameProduct;
+                small.classList = 'text-muted';
+                small.innerText = element.nameProduct;
+                span.innerText = `$${element.priceForTotalUnits}`;
+                
+                div.appendChild(h6);
+                div.appendChild(small);
+                li.appendChild(div);
+                li.appendChild(span);
+
+                receiptList.appendChild(li);
+            }   
+        });   
+    }
 }
 
 //Add product to LocalStorage
@@ -113,13 +149,7 @@ function addProductToLocalStorage (producto) {
             colecctionProducts.push(item);
         });
     }
-
     colecctionProducts.push(producto);
-
-    // producto.forEach( item => {
-    //     objects.push(item);
-    // });
-
     localStorage.setItem('products', JSON.stringify(colecctionProducts)); 
 }
 
