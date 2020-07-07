@@ -1,0 +1,138 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Fruit Stall</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+
+  </head>
+  <body class="bg-light">
+        <div class="container">
+            <div class="py-2 text-center">
+                <img class="d-block mx-auto mb-4" src="img/github-ico.png" alt="" width="72" height="72">
+                <h2>Fruit Stall</h2>
+                <p class="lead my-5">¡Bienvenido a Fruit Stall, el lugar donde podras hacer tus compras y tendras siempre los mejores precios!</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-4" id="receiptList">
+
+                    <!-- Factura lateral -->
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Your cart</span>
+                        <span class="badge badge-secondary badge-pill">3</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Product name</h6>
+                                <small class="text-muted">Brief description</small>
+                            </div>
+                            <span class="text-muted">$12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Second product</h6>
+                                <small class="text-muted">Brief description</small>
+                                </div>
+                            <span class="text-muted">$8</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Third item</h6>
+                                <small class="text-muted">Brief description</small>
+                                </div>
+                            <span class="text-muted">$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Promo code</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                            <span class="text-success">-$5</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            <strong>$20</strong>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between">
+                            <button class="btn btn-danger btn-lg btn-block" type="submit">Eliminar lista de compra</button>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!-- Formulario de registro de productos -->
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-4 text-center">Seleccion de productos para su compra:</h4> <br/>
+                    <form class="needs-validation" id="formToSale" novalidate>
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="">Productos:</label>
+                                <select onchange="setValue()" class="custom-select d-block w-100" id="product" required>
+                                    <option>Seleccione</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="">Precio por kilogramo:</label>
+                                <input class="form-control" id="priceToUnit" type="text" placeholder="$" readonly>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="">Cantidad de unidades:</label>
+                                <input onkeyup="setQuantity()" class="form-control" id="quantityUnits" type="text" placeholder="Cantidad de unidades">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Precio por total de unidades:</label>
+                                <input class="form-control" id="priceForTotalUnits" type="text" placeholder="$" readonly>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-primary btn-lg btn-block mty-4" type="submit">Agregar producto</button>
+                    
+                    </form>
+                        
+                    <hr class="mb-4">
+
+                    <h4 class="mb-3">Total a pagar:</h4>
+                    <h2 class="h2 text-right">200$</h2>
+                    <div class="row">
+            
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <button class="btn btn-success btn-lg btn-block" type="submit">Pagar</button>
+                </div>
+            </div>
+
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">&copy; 2020 - 20Siempre Deyker Gil</p>
+                <ul class="list-inline">
+                <li class="list-inline-item"><a href="">Facebook</a></li>
+                <li class="list-inline-item"><a href="">Tweeter</a></li>
+                <li class="list-inline-item"><a href="">Instagram</a></li>
+                </ul>
+            </footer>
+        </div>
+    
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/app.js"></script>
+
+</body>
+</html>
