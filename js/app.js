@@ -16,19 +16,27 @@ function localStorageLoad () {
     collectionsFruits = [
         {
             name : 'manzana',
-            value : 1
+            value : 0.032
         },
         {
             name : 'pera',
-            value : 2
+            value : 0.25
         },
         {
             name : 'guayaba',
-            value : 3
+            value : 0.2
         },
         {
             name : 'maracuyá',
-            value : 4
+            value : 0.43
+        },
+        {
+            name : 'fresa',
+            value : 0.21
+        },
+        {
+            name : 'durazno',
+            value : 0.12
         },
     ];
 
@@ -125,7 +133,7 @@ function listFruitReceipt() {
             h6.innerText = producto.nameProduct;
             small.classList = 'text-muted';
             small.innerText = producto.nameProduct;
-            span.innerText = `${producto.priceForTotalUnits}`;
+            span.innerText = `$ ${producto.priceForTotalUnits}`;
             
             div.appendChild(h6);
             div.appendChild(small);
