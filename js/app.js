@@ -105,36 +105,42 @@ function addProductToList (e) {
 //List products in the receipt
 function listFruitReceipt() {
     const collectionsProductsToLocalStorage = JSON.parse(localStorage.getItem('products'));
-    // console.log(optionSelectProduct);
 
     if (collectionsProductsToLocalStorage) {
+        let productoToCompare;
 
         collectionsProductsToLocalStorage.forEach((element) => {
+            return productoToCompare = element;
+        });  
         
-            // console.log(element);
-            if (element.nameProduct !== product) {
+        if ( productoToCompare.name != producto.nameProduct) {
+            const li = document.createElement('li');
+            const div = document.createElement('div');
+            const h6 = document.createElement('h6');
+            const small = document.createElement('small');
+            const span = document.createElement('span');
 
-                const li = document.createElement('li');
-                const div = document.createElement('div');
-                const h6 = document.createElement('h6');
-                const small = document.createElement('small');
-                const span = document.createElement('span');
+            li.classList = 'list-group-item d-flex justify-content-between lh-condensed';
+            h6.classList = 'my-0';
+            h6.innerText = producto.nameProduct;
+            small.classList = 'text-muted';
+            small.innerText = producto.nameProduct;
+            span.innerText = `${producto.priceForTotalUnits}`;
+            
+            div.appendChild(h6);
+            div.appendChild(small);
+            li.appendChild(div);
+            li.appendChild(span);
+            receiptList.appendChild(li);
 
-                li.classList = 'list-group-item d-flex justify-content-between lh-condensed';
-                h6.classList = 'my-0';
-                h6.innerText = element.nameProduct;
-                small.classList = 'text-muted';
-                small.innerText = element.nameProduct;
-                span.innerText = `$${element.priceForTotalUnits}`;
-                
-                div.appendChild(h6);
-                div.appendChild(small);
-                li.appendChild(div);
-                li.appendChild(span);
+        } 
+        // else {
 
-                receiptList.appendChild(li);
-            }   
-        });   
+        //     let setcountPriceToFruit = producto.priceForTotalUnits + productoToCompare.quantityUnits;
+        //     let countPriceToFruit = parseInt(setcountPriceToFruit);
+        //     span.innerText = `${countPriceToFruit}`;
+
+        // }   
     }
 }
 
